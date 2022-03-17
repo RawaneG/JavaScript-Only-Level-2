@@ -1,25 +1,43 @@
 const divPrincipale = document.querySelector('.div_principale');
-const success = document.querySelector('.success');
-const danger = document.querySelector('.danger');
-const warning = document.querySelector('.warning');
-const info = document.querySelector('.info');
+const boutons = document.querySelectorAll('button');
 
-success.addEventListener('click',() => 
+for(let i = 0; i < boutons.length; i++)
 {
-    creationNotif('success_message','Succès !!!');
-});
-danger.addEventListener('click',() => 
-{
-    creationNotif('danger_message','Danger !!!');
-});
-warning.addEventListener('click',() => 
-{
-    creationNotif('warning_message','Attention !!!');
-});
-info.addEventListener('click',() => 
-{
-    creationNotif('info_message','Information !!!');
-});
+    if(i == 0)
+    {
+        boutons[i].setAttribute('class','success');
+    }
+    if(i == 1)
+    {
+        boutons[i].setAttribute('class','danger');
+    }
+    if(i == 2)
+    {
+        boutons[i].setAttribute('class','warning');
+    }
+    if(i == 3)
+    {
+        boutons[i].setAttribute('class','info');
+    }
+    boutons[i].addEventListener('click',() => 
+    {
+        switch (boutons[i].className) 
+        {
+            case 'success':
+                creationNotif('success_message','Succès !!!');
+                break;
+            case 'danger':
+                    creationNotif('danger_message','Danger !!!');
+                break;
+            case 'warning':
+                    creationNotif('warning_message','Attention !!!');
+                break;
+            case 'info':
+                    creationNotif('info_message','Information !!!');
+                break;
+        }
+    })
+}
 
 function creationNotif(typeMessage,para)
 {
@@ -32,7 +50,6 @@ function creationNotif(typeMessage,para)
     message.appendChild(paragraphe);
     notification.appendChild(message);
     divPrincipale.appendChild(notification);
-    notification.style.transition = '0.3s ease-in-out';
     setTimeout(() => {
         notification.remove();
     }, 1000);

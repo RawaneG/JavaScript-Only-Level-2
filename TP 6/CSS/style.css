@@ -1,0 +1,20 @@
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.premier_div
+{
+    border: 2px solid red;
+    height: 10%;
+}
+.div_principale
+{
+    border: 2px solid blue;
+    height: 90%;
+}

@@ -31,16 +31,18 @@ body
     justify-content: space-evenly;
     align-items: center;
 }
-.conteneur_boutons a
+.conteneur_boutons button
 {
+    border: none;
     text-decoration: none;
     color: white;
     padding: 1.5%;
     border-radius: 1em;
     box-shadow: 1px 1px 2px 1px black;
     transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
-.conteneur_boutons a:hover
+.conteneur_boutons button:hover
 {
     background-color: black;
 }
