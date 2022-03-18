@@ -16,20 +16,42 @@ body
 }
 .div_principale
 {
-    border: 2px solid blue;
     height: 90%;
     display: flex;
 }
 .menu
 {
     width: 25%;
-    border: 2px solid red;
+}
+.menu i
+{
+    font-size: 25px;
+}
+.bg_color
+{
+    background-color: #007bff;
+}
+.active
+{
+    width: 80px;
+    overflow: hidden;
+}
+.active .letter_naming,.active .conteneur_search,.active .ensemble_icon,.active .exemple
+{
+    display: none;
+}
+.menu,.active
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    transition: 0.3s ease-in-out;
     background-color: #353a3f;
 }
 .dashboard
 {
     width: 75%;
-    border: 2px solid green;
     position: relative;
 }
 .dashboard i
@@ -39,13 +61,6 @@ body
     left: 2%;
     cursor: pointer;
 }
-.menu
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-}
 .first_border,.second_border
 {
     height: 15%;
@@ -53,6 +68,10 @@ body
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #515961;
+}
+.active .first_border,.active .second_border
+{
+    margin-left: 20%;
 }
 .first_border
 {
@@ -92,6 +111,10 @@ body
     color: #d6d7d8;
     margin-left: 10%;
 }
+.active .letter_name
+{
+    display: none;
+}
 .letter_naming
 {
     color: #d6d7d8;
@@ -123,7 +146,7 @@ body
 .search input[type=text]
 {
     width: 80%;
-    padding: 3%;
+    padding: 2.8%;
     border: 2px solid #515961;
     background-color: #353a3f;
     color: #d6d7d8;
@@ -137,8 +160,13 @@ body
     border: 2px solid #515961;
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
-    padding: 2.7%;
+    padding: 2.5%;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.search i:hover
+{
+    background-color: #434950;
 }
 .liste
 {
@@ -161,7 +189,7 @@ body
     transition: 0.3s ease-in-out;
     /* background-color: #007bff; */
 }
-.tableauDeBord:hover,.widgets:hover,.layoutOptions:hover,.charts:hover,.ui_Elements:hover,.forms:hover,.tables:hover
+.tableauDeBord:hover,.widgets:hover,.layoutOptions:hover,.charts:hover,.ui_Elements:hover,.forms:hover,.tables:hover, li a:hover
 {
     background-color: #434950;
 }
@@ -171,5 +199,69 @@ body
     width: 80%;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid red;
+}
+.count
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+.counter
+{
+    background-color: #17a2b8;
+    font-weight: bold;
+    padding: 4% 8%;
+    border-radius: 0.2em;
+}
+.new
+{
+    background-color: #dc3545;
+    font-weight: bold;
+    padding: 2% 4%;
+    border-radius: 0.1em;
+}
+.exemple
+{
+    width: 94%;
+    min-height: 15%;
+    display: flex;
+    align-items: center;
+}
+.circle
+{
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #d6d7d8;
+    border-radius: 50%;
+}
+ul
+{
+    padding: 0;
+    list-style-type: none;
+    width: 94%;
+}
+li
+{
+    min-height: 15%;
+}
+li input[type=radio]
+{
+    width: 2em;
+    height: 2em;
+}
+li a
+{
+    text-decoration: none;
+    color: #d6d7d8;
+    width: 94%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4% 0;
+}
+.angle_visible .list i
+{
+    display: none;
 }
