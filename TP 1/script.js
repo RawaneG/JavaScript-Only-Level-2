@@ -1,4 +1,5 @@
 const divPrincipale = document.querySelector('.div_principale');
+const conteneur = document.querySelector('.conteneur');
 const boutons = document.querySelectorAll('button');
 
 for(let i = 0; i < boutons.length; i++)
@@ -49,8 +50,9 @@ function creationNotif(typeMessage,para)
     paragraphe.innerHTML = para;
     message.appendChild(paragraphe);
     notification.appendChild(message);
-    divPrincipale.appendChild(notification);
-    setTimeout(() => {
+    conteneur.appendChild(notification);
+    setTimeout(() => 
+    {
         notification.remove();
     }, 1000);
 }
