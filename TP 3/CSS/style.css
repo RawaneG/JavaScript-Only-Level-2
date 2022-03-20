@@ -16,18 +16,13 @@ body
 }
 .div_principale
 {
-    border: 2px solid blue;
-    min-height: 90%;
+    height: 90%;
 }
 .conteneur
 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.gauche,.droite
-{
-    border: 2px solid green;
 }
 .slider
 {
@@ -51,6 +46,21 @@ body
 }
 button
 {
+    background: none;
+    border: none;
+}
+button i
+{
+    color: black;
+    font-size: 2em;
+    padding: 1.5em 3em;
+    transition: 0.4s ease-in-out;
+    border-radius: 1.5em;
+    background-color: blanchedalmond;
     cursor: pointer;
-    padding: 2% 4%;
+}
+button i:hover
+{
+    color: blanchedalmond;
+    background-color: black;
 }

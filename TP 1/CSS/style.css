@@ -15,10 +15,8 @@ body
 }
 .div_principale
 {
-    border: 2px solid blue;
     height: 90%;
     display:flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 .conteneur_boutons
@@ -46,6 +44,21 @@ body
 {
     background-color: black;
 }
+.conteneur
+{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.notification
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;  
+    margin: 2% 0;  
+}
 .success,.success_message
 {
     background-color: #28a745;
@@ -62,15 +75,11 @@ body
 {
     background-color: #17adb8;
 }
-.notification
-{
-    display: flex;
-    justify-content: flex-end;
-    margin: 2% 0;
-}
 .success_message,.danger_message,.warning_message,.info_message
 {
-    padding: 2% 4%;
+    padding: 6% 4%;
     font-weight: bold;
-    border-radius: 1em;
+    border-radius: 0.5em;
+    width: 80%;
+    text-align: center;
 }
