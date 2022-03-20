@@ -1,40 +1,43 @@
-const btnGauche = document.getElementById('btn_gauche');
-const btnDroite = document.getElementById('btn_droite');
-const images = document.querySelectorAll('img');
-let imageActuel = 0;
+const carouselSlide = document.querySelector('.carousel-slide');
+const carouselImages = document.querySelectorAll('.carousel-slide img');
 
-btnGauche.addEventListener('click', imagePrecedente);
-btnDroite.addEventListener('click', imageSuivante);
+const prev = document.querySelector('#prev');
+const next = document.querySelector('#next');
 
-function imageSuivante()
+let counter = 1;
+
+const size = carouselImages[0].clientWidth;
+
+carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+next.addEventListener('click',()=>
 {
-    images[imageActuel].classList.remove('active');
+    if(counter >= carouselImages.length -1) return;
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+    counter++;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+})
 
-    if(imageActuel < images.length - 1)
-    {
-        imageActuel++;
-    }
-    else
-    {
-        imageActuel = 0
-    }
-
-    images[imageActuel].classList.add('active');
-}
-
-function imagePrecedente()
+prev.addEventListener('click',()=>
 {
-    images[imageActuel].classList.remove('active');
+    if(counter <= 0) return;
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+    counter--;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+})
 
-    if(imageActuel > 0)
+carouselSlide.addEventListener('transitionend', () => 
+{
+    if(carouselImages[counter].id === 'last-clone')
     {
-        imageActuel--;
+        carouselSlide.style.transition = 'none';
+        counter = carouselImages.length - 2;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
-    else
+    if(carouselImages[counter].id === 'first-clone')
     {
-        imageActuel = images.length-1;
-    }
-    
-    images[imageActuel].classList.add('active');
-}
-
+        carouselSlide.style.transition = 'none';
+        counter = carouselImages.length - counter;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    } 
+})
