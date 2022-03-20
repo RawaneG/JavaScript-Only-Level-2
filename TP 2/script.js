@@ -149,9 +149,14 @@ principal.forEach(element =>
     {
         element.addEventListener('click',() =>
         {
+            let angleDown = element.lastChild.lastChild.lastChild.previousSibling;
+            let angleLeft = element.lastChild.lastChild.lastChild;
             let menu = element.nextElementSibling;
-            console.log(element);
             menu.classList.toggle('activated');
             menu.classList.toggle('mini_menu');
+            angleDown.classList.toggle('angle_visible');
+            angleDown.classList.toggle('angle_invisible');
+            angleLeft.classList.toggle('invisible');
+            angleLeft.classList.toggle('arrowLeft');
         })
     });
