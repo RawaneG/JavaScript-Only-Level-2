@@ -6,7 +6,8 @@
 body
 {
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: black;
+    overflow: hidden;
 }
 .premier_div
 {
@@ -16,5 +17,35 @@ body
 .div_principale
 {
     border: 2px solid blue;
-    height: 90%;
+    min-height: 90%;
+}
+.conteneur
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.gauche,.droite
+{
+    border: 2px solid green;
+}
+.slider
+{
+    display: flex;
+    justify-content: center;
+}
+.slider img
+{
+   display: none;
+   max-width: 53.9%;
+}
+.slider img.active
+{
+    display: block;
+   max-width: 53.9%;
+}
+button
+{
+    cursor: pointer;
+    padding: 2% 4%;
 }

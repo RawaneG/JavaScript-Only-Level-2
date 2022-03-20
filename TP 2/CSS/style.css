@@ -177,6 +177,10 @@ body
     align-items: center;
     color: white;
 }
+.derouler .tableauDeBord
+{
+    min-height: 100%;
+}
 .tableauDeBord,.widgets,.layoutOptions,.charts,.ui_Elements,.forms,.tables
 {
     min-height: 15%;
@@ -236,11 +240,23 @@ body
     border: 2px solid #d6d7d8;
     border-radius: 50%;
 }
+.mini_menu
+{
+    width: 100%;
+    display: none;
+}
+.activated .mini_menu
+{
+    display: flex;
+    display: flex;
+    justify-content:center;
+}
 ul
 {
     padding: 0;
     list-style-type: none;
     width: 94%;
+    border: 2px solid red;
 }
 li
 {
@@ -250,18 +266,23 @@ li input[type=radio]
 {
     width: 2em;
     height: 2em;
+
 }
 li a
 {
     text-decoration: none;
     color: #d6d7d8;
-    width: 94%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 4% 0;
 }
-.angle_visible .list i
+.angle_invisible .list i
 {
     display: none;
+}
+.angle_visible .list i
+{
+    display: block;
 }
