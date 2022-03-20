@@ -1,43 +1,41 @@
-const carouselSlide = document.querySelector('.carousel-slide');
-const carouselImages = document.querySelectorAll('.carousel-slide img');
+const btnGauche = document.getElementById('btn_gauche');
+const btnDroite = document.getElementById('btn_droite');
+const images = document.querySelectorAll('img');
+let imageActuel = 0;
 
-const prev = document.querySelector('#prev');
-const next = document.querySelector('#next');
+btnGauche.addEventListener('click', imagePrecedente);
+btnDroite.addEventListener('click', imageSuivante);
 
-let counter = 1;
-
-const size = carouselImages[0].clientWidth;
-
-carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-
-next.addEventListener('click',()=>
+function imageSuivante()
 {
-    if(counter >= carouselImages.length -1) return;
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-    counter++;
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-})
+    images[imageActuel].classList.remove('active');
 
-prev.addEventListener('click',()=>
-{
-    if(counter <= 0) return;
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-    counter--;
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-})
-
-carouselSlide.addEventListener('transitionend', () => 
-{
-    if(carouselImages[counter].id === 'last-clone')
+    if(imageActuel < images.length - 1)
     {
-        carouselSlide.style.transition = 'none';
-        counter = carouselImages.length - 2;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        imageActuel++;
     }
-    if(carouselImages[counter].id === 'first-clone')
+    else
     {
-        carouselSlide.style.transition = 'none';
-        counter = carouselImages.length - counter;
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-    } 
-})
+        imageActuel = 0
+    }
+
+    images[imageActuel].classList.add('active');
+}
+
+function imagePrecedente()
+{
+    images[imageActuel].classList.remove('active');
+
+    if(imageActuel > 0)
+    {
+        imageActuel--;
+    }
+    else
+    {
+        imageActuel = images.length-1;
+    }
+    
+    images[imageActuel].classList.add('active');
+}
+
+setInterval(() => { imageSuivante() }, 5000 );
