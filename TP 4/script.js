@@ -1,7 +1,7 @@
-let days = document.querySelector('.day');
-let hours = document.querySelector('.hour');
-let minutes = document.querySelector('.minute');
-let seconds = document.querySelector('.seconds');
+let day = document.querySelector('.day');
+let hour = document.querySelector('.hour');
+let minute = document.querySelector('.minute');
+let second = document.querySelector('.seconds');
 
 // On recueille la date qu'on veut obtenir en millisecondes ici la date est le 1er janvier 2023
 let countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
@@ -21,10 +21,10 @@ let x = setInterval(() =>
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
     // On affecte les différentes valeurs aux contenus html en l'occurence les h5
-        days.innerHTML = days + ' jours';
-        hours.innerHTML = hours + ' heures';
-        minutes.innerHTML = minutes + ' minutes';
-        seconds.innerHTML = seconds + ' secondes';
+        day.innerHTML = days;
+        hour.innerHTML = hours;
+        minute.innerHTML = minutes;
+        second.innerHTML = seconds;
         
     // Si le compteur est atteint la fonction setInterval est annulée et on affiche un message
     if (distance < 0) 
