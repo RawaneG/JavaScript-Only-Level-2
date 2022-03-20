@@ -8,7 +8,6 @@ bouton.addEventListener('click', () =>
     menu.classList.toggle('menu');
     menu.classList.toggle('active');
 });
-
 let tableau =
     [
         {
@@ -87,25 +86,22 @@ for (let i = 0; i < tableau.length; i++)
     angleLeft.setAttribute('class', tableau[i].angleLeft);
     angleLeft.className += ' arrowLeft';
     let angleDown = document.createElement('i');
+    angleDown.setAttribute('class', tableau[i].angleDown);
     let miniMenu = document.createElement('div');
     miniMenu.classList.add('mini_menu');
     let ul = document.createElement('ul');
     let li = document.createElement('li');
-    let a = document.createElement('a');
-    let circleSpan = document.createElement('span');
-    circleSpan.classList.add('circle');
-    let paraSpan = document.createElement('span');
-    let circleTable = [];
     for(let j = 0; j < tableau[i].liste.length; j++)
     {   
-
+        li.innerHTML += 
+        `<a href="">
+        <span class="circle"></span>
+        <span>${tableau[i].liste[j]}</span>
+        </a>`;
     }
-
-    li.appendChild(a);
     ul.appendChild(li);
     miniMenu.appendChild(ul);
-    angleDown.setAttribute('class', tableau[i].angleDown);
-    angleDown.setAttribute('class', 'angle_invisible');
+    angleDown.classList.add('angle_invisible');
     count.appendChild(countSpan);
     count.appendChild(newSpan);
     count.appendChild(angleDown);
@@ -127,7 +123,7 @@ for (let i = 0; i < tableau.length; i++)
     }
     if (divPrincipal.className == 'layoutOptions principal') 
     {
-        countSpan.innerHTML = 6;
+        countSpan.innerHTML = tableau[i].liste.length;
         countSpan.classList.add('counter');
     }
     liste.appendChild(divPrincipal);
@@ -136,6 +132,9 @@ for (let i = 0; i < tableau.length; i++)
 }
 
 let principal = document.querySelectorAll('.principal');
+let miniMenu = document.querySelectorAll('.mini_menu');
+let angleDown = document.querySelectorAll('.angle_invisible');
+let angleLeft = document.querySelectorAll('.arrowLeft');
 
 principal[0].addEventListener('mouseover',() => 
 {
@@ -145,3 +144,14 @@ principal[0].addEventListener('mouseover',() =>
         menu.classList.add('menu');
     }
 });
+
+principal.forEach(element => 
+    {
+        element.addEventListener('click',() =>
+        {
+            let menu = element.nextElementSibling;
+            console.log(element);
+            menu.classList.toggle('activated');
+            menu.classList.toggle('mini_menu');
+        })
+    });

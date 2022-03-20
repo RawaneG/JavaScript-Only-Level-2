@@ -36,9 +36,13 @@ body
     width: 80px;
     overflow: hidden;
 }
-.active .letter_naming,.active .conteneur_search,.active .ensemble_icon,.active .exemple
+.active .letter_naming,.active .conteneur_search,.active .ensemble_icon,.active .exemple,.active span
 {
     display: none;
+}
+.active .circle
+{
+    display: block;
 }
 .menu,.active
 {
@@ -234,39 +238,35 @@ body
 }
 .circle
 {
-    display: block;
     width: 25px;
     height: 25px;
     border: 2px solid #d6d7d8;
     border-radius: 50%;
 }
+
 .mini_menu
 {
     width: 100%;
     display: none;
 }
-.activated .mini_menu
+.activated
 {
+    width: 100%;
     display: flex;
-    display: flex;
+    flex-direction: column;
     justify-content:center;
+    align-items: center;
 }
 ul
 {
     padding: 0;
     list-style-type: none;
     width: 94%;
-    border: 2px solid red;
 }
 li
 {
     min-height: 15%;
-}
-li input[type=radio]
-{
-    width: 2em;
-    height: 2em;
-
+    width: 100%;
 }
 li a
 {
@@ -278,11 +278,19 @@ li a
     align-items: center;
     padding: 4% 0;
 }
-.angle_invisible .list i
+li span
+{
+    width: 50%;
+}
+.angle_invisible
 {
     display: none;
 }
 .angle_visible .list i
 {
     display: block;
+}
+.invisible
+{
+    display: none;
 }
