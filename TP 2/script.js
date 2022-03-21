@@ -15,56 +15,54 @@ let tableau =
             className: 'tableauDeBord',
             liste: ['Dashboard v1', 'Dashboard v2', 'Dashboard v3'],
             iconePrincipal: 'fa fa-tachometer-alt',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
         },
         {
             titre: "Widgets",
             className: 'widgets',
             liste: [],
             iconePrincipal: 'fa fa-th aria-hidden="true"',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
         },
         {
             titre: "Layout Options",
             className: 'layoutOptions',
             liste: ['ChartJS', 'Flot', 'Inline', 'uPlot'],
             iconePrincipal: 'fas fa-copy',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
+            
         },
         {
             titre: "Charts",
             className: 'charts',
             liste: [],
             iconePrincipal: 'fas fa-chart-pie',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
+            
         },
         {
             titre: "UI Elements",
             className: 'ui_Elements',
             liste: [],
             iconePrincipal: 'fas fa-tree',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
+            
         },
         {
             titre: "Forms",
             className: 'forms',
             liste: [],
             iconePrincipal: 'fas fa-edit',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
+            
         },
         {
             titre: "Tables",
             className: 'tables',
             liste: [],
             iconePrincipal: 'fas fa-table',
-            angleLeft: 'fa fa-angle-left',
-            angleDown: 'fa fa-angle-down'
+            angleLeft: 'fa fa-angle-left'
+            
         }
     ];
 
@@ -85,8 +83,6 @@ for (let i = 0; i < tableau.length; i++)
     let angleLeft = document.createElement('i');
     angleLeft.setAttribute('class', tableau[i].angleLeft);
     angleLeft.className += ' arrowLeft';
-    let angleDown = document.createElement('i');
-    angleDown.setAttribute('class', tableau[i].angleDown);
     let miniMenu = document.createElement('div');
     miniMenu.classList.add('mini_menu');
     let ul = document.createElement('ul');
@@ -101,10 +97,8 @@ for (let i = 0; i < tableau.length; i++)
     }
     ul.appendChild(li);
     miniMenu.appendChild(ul);
-    angleDown.classList.add('angle_invisible');
     count.appendChild(countSpan);
     count.appendChild(newSpan);
-    count.appendChild(angleDown);
     count.appendChild(angleLeft);
     ensemble_icon.appendChild(currentElement);
     ensemble_icon.appendChild(count);
@@ -133,7 +127,6 @@ for (let i = 0; i < tableau.length; i++)
 
 let principal = document.querySelectorAll('.principal');
 let miniMenu = document.querySelectorAll('.mini_menu');
-let angleDown = document.querySelectorAll('.angle_invisible');
 let angleLeft = document.querySelectorAll('.arrowLeft');
 
 principal[0].addEventListener('mouseover',() => 
@@ -149,13 +142,10 @@ principal.forEach(element =>
     {
         element.addEventListener('click',() =>
         {
-            let angleDown = element.lastChild.lastChild.lastChild.previousSibling;
             let angleLeft = element.lastChild.lastChild.lastChild;
             let menu = element.nextElementSibling;
             menu.classList.toggle('activated');
             menu.classList.toggle('mini_menu');
-            angleDown.classList.toggle('angle_visible');
-            angleDown.classList.toggle('angle_invisible');
             angleLeft.classList.toggle('invisible');
             angleLeft.classList.toggle('arrowLeft');
         })

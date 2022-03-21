@@ -1,3 +1,9 @@
+:root
+{
+    --lightBlue :#8e95f5;
+    --blue : #373b69;
+    --darkerBlue : #22254a;
+}
 *
 {
     margin: 0;
@@ -6,21 +12,20 @@
 }
 body
 {
-    height: 100vh;
-    background-color: #f5f5f5;
+    background-color: var(--blue);
 }
 .premier_div
 {
-    height: 10%;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height: 10%;
     align-items: center;
+    margin: 1% 0;
 }
 .premier_div a 
 {
     text-decoration: none;
+    border: 2px solid white;
     color: white;
     background-color: rgb(21, 44, 105);
     text-align: center;
@@ -35,6 +40,84 @@ body
 }
 .div_principale
 {
-    border: 2px solid blue;
-    height: 90%;
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+}
+.recherche
+{
+    margin: 1% 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.recherche input
+{
+    border: 5px solid var(--darkerBlue);
+    padding: 1em 2em;
+    border-radius: 2em;
+    background-color: var(--blue);
+    color: var(--lightBlue);
+    font-weight: bold;
+    outline: none;
+    margin-right: 5%;
+}
+.movies
+{
+    background-color: var(--darkerBlue);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.image
+{
+    width: 20%;
+    height: 60vh;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.image img
+{
+    width: 100%;
+    height: 100%;
+}
+.text
+{
+    background-color: var(--blue);
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: bold;
+}
+.text p
+{
+    width: 70%;
+    color: white;
+}
+.text span
+{
+    background-color: var(--darkerBlue);
+    padding: 2.5%;
+    border-radius: 0.5em;
+}
+.description
+{
+    background-color: white;
+    padding: 5%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.4s ease-in-out;
+    transform: translateY(101%);
+}
+.image:hover .description
+{
+    transform: translateY(0%);
 }

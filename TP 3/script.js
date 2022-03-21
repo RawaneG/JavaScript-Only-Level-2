@@ -39,3 +39,15 @@ function imagePrecedente()
 }
 
 setInterval(() => { imageSuivante() }, 5000 );
+
+for(let i = 0; i < images.length; i++)
+{
+    images[i].addEventListener('mouseover',() => 
+    {
+        images[i].classList.toggle('zooming');
+    });
+    images[i].addEventListener('mouseout',() => 
+    {
+        images[i].classList.toggle('zooming');
+    });
+}
