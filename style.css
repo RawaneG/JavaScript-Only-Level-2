@@ -1,0 +1,37 @@
+*
+{
+    font-size: 1.1em;
+    font-family: sans-serif;
+}
+body
+{
+    background-image: url('snow.jpg');
+    background-size: cover;
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a
+{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(21, 44, 105);
+    display: block;
+    padding: 1%;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+}
+a:hover
+{
+    opacity: 0.6;
+}
+table
+{
+    width: 100%;
+    height: 100%;
+}

@@ -2,6 +2,7 @@
 {
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 body
 {
@@ -10,8 +11,27 @@ body
 }
 .premier_div
 {
-    border: 2px solid red;
     height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+.premier_div a 
+{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(21, 44, 105);
+    text-align: center;
+    display: block;
+    padding: 1%;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+}
+.premier_div a:hover
+{
+    opacity: 0.6;
 }
 .div_principale
 {
