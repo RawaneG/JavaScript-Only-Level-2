@@ -13,6 +13,7 @@
 body
 {
     background-color: var(--blue);
+    padding-bottom: 100px;
 }
 .premier_div
 {
