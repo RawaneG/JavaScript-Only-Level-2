@@ -9,6 +9,7 @@ body
     height: 100vh;
     background-color: #f5f5f5;
 }
+                    /********************************* DIV EXERCICE **********************************/
 .premier_div
 {
     height: 10%;
@@ -33,8 +34,179 @@ body
 {
     opacity: 0.6;
 }
+            /************************************ MAIN DIV OF THE PROJECT **********************************/
 .div_principale
 {
-    border: 2px solid blue;
-    height: 90%;
+    display:flex;
+    justify-content: center;
+}
+.papa
+{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+}
+.fils
+{
+    width: 98%;
+    height: 98%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.recherche  
+{
+    width: 60%;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.recherche i
+{
+    font-size: 2em;
+    color:#8c7c8c;
+    cursor: pointer;
+}
+.recherche input
+{
+    padding: 4% 2%;
+    width: 80%;
+    border: none;
+    background: #ededed;
+    outline: none;
+}
+                    /********************************** RECIPE SIDE ***************************************/
+.recette
+{
+    width: 60%;
+    margin: 5% 0;
+    box-shadow: 0 0 6px 6px rgb(216, 213, 213);
+    position: relative;
+}
+.recette img
+{
+    width: 100%;
+}
+.image h3
+{
+    text-align: center;
+    padding: 2.5%;
+    position: absolute;
+    background-color: white;
+    width: 70%;
+    top: 15%;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.image h3:hover
+{
+    box-shadow: 0 0 6px 6px rgb(216, 213, 213);
+}
+.image_details
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4%;
+}
+.image_details i
+{
+    font-size: 1.5em;
+    color: #d6d3d3;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.image_details i:hover
+{
+    color: #b6b2b2;
+}
+            /************************************ POP UP SIDE **********************************************/
+.description_papa
+{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    width:60%;
+    height: 100%;
+    transition:all 300ms ease-in-out;
+}
+.active
+{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.9);
+    width:50%;
+    height: 100%;
+    transition:all 300ms ease-in-out;
+}
+.description
+{
+    margin: 2% 1%;
+    background-color: white;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 98%;
+    overflow: auto;
+}
+.titre
+{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 3% 0;
+    text-align: center;
+}
+.close
+{
+    display: flex;
+    justify-content: flex-end;
+}
+.titre i
+{
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.titre i:hover
+{
+    color: gray;
+}
+.description_image
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.description_image img,.description_image p
+{
+    width: 80%;
+    margin: 2% 0;
+}
+.ingredients
+{
+    width: 80%;
+    margin: 4% 0;
+}
+.ingredients h3, .ingredients li
+{
+    margin: 4% 0;
 }

@@ -71,7 +71,7 @@ body
 }
 .image
 {
-    width: 23%;
+    width: 18%;
     height: 60vh;
     margin: 2% 0.5%;
     display: flex;
@@ -116,6 +116,8 @@ body
     right: 0;
     transition: 0.4s ease-in-out;
     transform: translateY(101%);
+    height: 50%;
+    overflow: auto;
 }
 .image:hover .description
 {

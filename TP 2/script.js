@@ -8,7 +8,6 @@ bouton.addEventListener('click', () =>
     menu.classList.toggle('menu');
     menu.classList.toggle('active');
 });
-
 let tableau =
     [
         {

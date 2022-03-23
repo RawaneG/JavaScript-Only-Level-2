@@ -9,7 +9,6 @@ let textSecond = document.querySelector('.textSecond');
 
 // On recueille la date qu'on veut obtenir en millisecondes ici la date est le 1er janvier 2023
 let countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
-
 let x = setInterval(() =>  
 {
     // On recueille la date actuelle en millisecondes
