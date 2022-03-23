@@ -62,9 +62,16 @@ fetchingAPI(APIURL);
 
 input.addEventListener('input', () => 
 {
-    papa.innerHTML = '';
-    let valeur = input.value;
-    fetchingAPI(SEARCHAPI + valeur);
+    let valeur = input.value.trim();
+    if(valeur === '')
+    {
+        fetchingAPI(APIURL);
+    }
+    else
+    {
+        papa.innerHTML = '';
+        fetchingAPI(SEARCHAPI + valeur);
+    }
 });
 
 
