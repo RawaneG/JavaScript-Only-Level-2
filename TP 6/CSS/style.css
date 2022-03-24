@@ -133,7 +133,7 @@ body
 }
 .image_details i:hover
 {
-    color: #b6b2b2;
+    color: #ff0000;
 }
             /************************************ POP UP SIDE **********************************************/
 .description_papa
@@ -197,7 +197,7 @@ body
 }
 .titre i:hover
 {
-    color: gray;
+    color: rgb(128, 128, 128);
 }
 .description_image
 {

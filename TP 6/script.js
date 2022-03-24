@@ -35,6 +35,7 @@ fetch(RANDOM).then(element =>
     const ouvrir = document.querySelector('.fa-heart');
     const fermer = document.querySelector('.fa-close');
     const description_container = document.querySelector('.description_papa');
+    const receipt_container = document.querySelector('.recette_container');
     const input = document.querySelector('input');
 
     generer.addEventListener('click',() => 
@@ -53,53 +54,104 @@ fetch(RANDOM).then(element =>
     input.addEventListener('input',() => 
     {
         let entree = input.value.trim();
-        fetch(FILTER_NAME + entree).then(element => 
-            {
-                return element.json();
-            })
-            .then(element => 
-            {
-                element.meals.forEach(element => 
-                    {   
-                        makeRecette(element.strMealThumb,element.strMeal,element.strInstructions);
-                        const ul = document.querySelector(`#ul${i}`);
-                        console.log(ul)
-                        for (let i = 1; i < 21; i++) 
-                        {
-                            let li = '';
-                                li += element[`strIngredient${i}`];  
-                                if(li == '' || li === null)
+        if(entree.length >= 3)
+        {
+            fetch(FILTER_NAME + entree).then(element => 
+                {
+                    return element.json();
+                })
+                .then(element => 
+                {
+                    element.meals.forEach(element => 
+                        {   
+                            if(entree.length == 4)
+                            {
+                                receipt_container.innerHTML = ''
+                                makeRecette(element.strMealThumb,element.strMeal,element.strInstructions);
+                                const ul = document.querySelector(`#ul${i}`);
+                                for (let i = 1; i < 21; i++) 
                                 {
-                                    continue;
+                                    let li = '';
+                                        li += element[`strIngredient${i}`];  
+                                        if(li == '' || li === null)
+                                        {
+                                            continue;
+                                        }
+                                        else
+                                        {
+                                            ul.innerHTML += '<li>' + li + '</li>';
+                                        }
+                                }
+                                i++;
+                                
+                                const ouvrir = document.querySelectorAll('.fa-heart');
+                                const fermer = document.querySelectorAll('.fa-close');
+                                const description_container = document.querySelectorAll('.description_papa');
+                                
+                                for (let i = 0; i < ouvrir.length; i++) 
+                                {
+                                    ouvrir[i].addEventListener('click',() => 
+                                    {
+                                        description_container[i].className = 'active';
+                                    })   
+                                }
+                                for (let i = 0; i < fermer.length; i++) 
+                                {
+                                    fermer[i].addEventListener('click',() => 
+                                    {
+                                        description_container[i].className = 'description_papa';
+                                    })
+                                }
+                            }
+                            else
+                            {
+                                let myId = element.idMeal;
+                                if(myId != element.idMeal)
+                                {
+                                    makeRecette(element.strMealThumb,element.strMeal,element.strInstructions);
+                                    const ul = document.querySelector(`#ul${i}`);
+                                    for (let i = 1; i < 21; i++) 
+                                    {
+                                        let li = '';
+                                            li += element[`strIngredient${i}`];  
+                                            if(li == '' || li === null)
+                                            {
+                                                continue;
+                                            }
+                                            else
+                                            {
+                                                ul.innerHTML += '<li>' + li + '</li>';
+                                            }
+                                    }
+                                    i++;
+                                    
+                                    const ouvrir = document.querySelectorAll('.fa-heart');
+                                    const fermer = document.querySelectorAll('.fa-close');
+                                    const description_container = document.querySelectorAll('.description_papa');
+                                    
+                                    for (let i = 0; i < ouvrir.length; i++) 
+                                    {
+                                        ouvrir[i].addEventListener('click',() => 
+                                        {
+                                            description_container[i].className = 'active';
+                                        })   
+                                    }
+                                    for (let i = 0; i < fermer.length; i++) 
+                                    {
+                                        fermer[i].addEventListener('click',() => 
+                                        {
+                                            description_container[i].className = 'description_papa';
+                                        })
+                                    }
                                 }
                                 else
                                 {
-                                    ul.innerHTML += '<li>' + li + '</li>';
+                                    console.log('arrête')
                                 }
-                        }
-                        i++;
-
-                        
-                        const ouvrir = document.querySelectorAll('.fa-heart');
-                        const fermer = document.querySelectorAll('.fa-close');
-                        const description_container = document.querySelectorAll('.description_papa');
-                        
-                        for (let i = 0; i < ouvrir.length; i++) 
-                        {
-                            ouvrir[i].addEventListener('click',() => 
-                            {
-                                description_container[i].className = 'active';
-                            })   
-                        }
-                        for (let i = 0; i < fermer.length; i++) 
-                        {
-                            fermer[i].addEventListener('click',() => 
-                            {
-                                description_container[i].className = 'description_papa';
-                            })
-                        }
-                    });
-            })
+                            }
+                        });
+                })
+        }
     })
 
 
@@ -175,7 +227,8 @@ function makeContent(image,nom,paragraphe)
 function makeRecette(image,nom,paragraphe) 
 {
     let papa = document.createElement('div');
-    papa.classList.add('papa');
+    papa.classList.add(`papa`);
+    papa.setAttribute('id',`papa${i}`);
         let fils = document.createElement('div');
         fils.classList.add('fils');
         let recetteContainer = document.createElement('div');

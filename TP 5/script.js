@@ -12,21 +12,8 @@ window.addEventListener('scroll', () =>
 
 	if(clientHeight + scrollTop >= scrollHeight - 5) 
     {
-		// show the loading animation
-		fetch(APIURL + (i +=1))
-        .then((element) => 
-        {
-            return element.json();
-        })
-        .then(element => 
-                {
-                    element.results.forEach(element => 
-                        {
-                            let image = IMGPATH + element.poster_path;
-                            creerDiv(image ,element.original_title,element.vote_average,element.overview);
-                        })
-                });
-	}
+        fetchingAPI(APIURL + (i +=1));
+    }
 });
 
 function fetchingAPI(element)
