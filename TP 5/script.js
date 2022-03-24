@@ -5,12 +5,11 @@ let i = 1;
 const papa = document.querySelector('.movies');
 const input = document.querySelector('input');
 
+
 window.addEventListener('scroll', () => 
 {
 	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-	
-	console.log( { scrollTop, scrollHeight, clientHeight });
-	
+
 	if(clientHeight + scrollTop >= scrollHeight - 5) 
     {
 		// show the loading animation

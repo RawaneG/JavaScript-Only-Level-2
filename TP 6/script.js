@@ -21,7 +21,7 @@ fetch(RANDOM).then(element =>
     {
         let li = '';
             li += element[`strIngredient${i}`];  
-            if(li == '')
+            if(li === '' || li === null || li === 'null')
             {
                 continue;
             }
@@ -52,8 +52,7 @@ fetch(RANDOM).then(element =>
 
     input.addEventListener('input',() => 
     {
-        let entree = input.value;
-
+        let entree = input.value.trim();
         fetch(FILTER_NAME + entree).then(element => 
             {
                 return element.json();
@@ -61,7 +60,7 @@ fetch(RANDOM).then(element =>
             .then(element => 
             {
                 element.meals.forEach(element => 
-                    {
+                    {   
                         makeRecette(element.strMealThumb,element.strMeal,element.strInstructions);
                         const ul = document.querySelector(`#ul${i}`);
                         console.log(ul)
